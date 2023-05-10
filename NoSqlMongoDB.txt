@@ -1,0 +1,103 @@
+----show databases
+show dbs
+
+---- new database or switch database
+use dbName
+
+---- delete database
+db.dropDatabase()
+ 
+-------------------------------------------------
+		COMMANDS FOR TABLE(COLLECTIONS)
+	
+--- show collections(tables)
+show collections
+
+---- create Collection
+db.createCollection('collectionName')
+
+---- delete collection
+db.collectionName.drop();
+
+-------------------------------------------------
+		COMMANDS FOR ROWS(DOCUMENTS)
+
+---- insert ONE ROW
+db.collectionName.insert({"name":"Ammar","age":20})
+
+---- insert Many ROWs
+db.collectionName.insertMany([{"name":"Ammar","age":20},
+{"name":"Huzaifa","age":25},{"name":"Sarmad","age":40,"status":"single"}])
+
+---- show all rows(documents)
+db.collectioName.find()
+
+--------------------------------------------------
+---- Search and show All results where age=20
+db.Blog.find({"age":20})
+
+---- Search and show only 1st result where age=20
+db.Blog.findOne({"age":20})
+
+-------------------------------------------------
+		limit
+---- show only first 2 rows results
+db.Blog.find().limit(2)
+
+-----------------------------------------------
+		count Rows where age=20
+db.Blog.find({"age":20}).count();
+		count All Rows
+db.Blog.find().count();
+
+-----------------------------------------------
+	sort ascending order using according to name
+db.Blog.find().sort({name:1})
+	sort descending order using according to name
+db.Blog.find().sort({name:-1})
+
+
+----------------------------------------------
+		UPDATE
+--- UPDATE FIRST ONE ROW
+--if updated field not matched then add new field
+(NewName)=> not available then add a new field
+
+db.Blog.updateOne({Name:'Ali'},{$set:{NewName:'Khan',age:60}})
+
+---- upserted means if not match condition then add new row
+db.Blog.updateOne({Name:"Amjad"},{$set:{
+Name:"Amjad",
+age:30
+}},{upsert:true})
+
+---- increment in Age field () --------------------------
+ db.Blog.updateOne({Name:"Amjad"},{$inc:{
+age:8 
+}})
+
+--- before age=30 after age=38
+
+------------- UPDATE field Name (Name=>FullName)
+ db.Blog.updateOne({Name:"Sarmad"},{$rename:{
+Name:"FullName" 
+}})
+--------------------------------------------------
+		UPDATE all fields with(age=> New Age)
+db.Blog.updateMany({},{$rename:{age:"NewAge"}})
+
+
+--------------------------------------------------
+---------------------- DELETE ROWs where age=20 -----------------
+db.Blog.remove({Age:20})
+
+----------  GRETER THAN ANd Less Than ---------------------------
+
+--	show all results where age<40
+db.Blog.find({Age:{$lt:40}})
+
+-- remove where age less than 38
+db.Blog.remove({Age:{$lt:38}})
+
+-- show all where age is greater than 40
+db.Blog.find({Age:{$gt:40}})
