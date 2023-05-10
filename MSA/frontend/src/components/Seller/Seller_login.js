@@ -4,8 +4,7 @@ import KeyIcon from '@mui/icons-material/Key';
 import bgimg from '../images/backimg.jpg';
 import bg from '../images/signin.svg';
 import LockOpenIcon from '@mui/icons-material/LockOpen';
-import { green, red, white } from '@mui/material/colors';
-
+import { Link } from '@mui/material';
 import React from 'react';
 
 const boxstyle = {
@@ -24,24 +23,15 @@ const center = {
     justifyContent: "center",
     alignItems: "center",
     flexDirection: "column",
-
-    // position: "relative",
-    // top: "50%",
-    // left: "37%",
 };
-
 export const Seller_login = () => {
-
-
     return (
         <div style={{
             backgroundImage: `url(${bgimg})`,
             backgroundSize: "cover",
             height: "100vh",
             color: "#f5f5f5",
-
         }}>
-
             <Box sx={boxstyle}>
                 <Grid container >
                     {/* For Image */}
@@ -58,7 +48,6 @@ export const Seller_login = () => {
                             }}
                         ></Box>
                     </Grid>
-
                     {/* For Fields */}
                     <Grid item xs={12} lg={6}>
                         <Box
@@ -68,7 +57,7 @@ export const Seller_login = () => {
                                 backgroundSize: "cover",
                                 minHeight: "300px",
                                 pl: 10,
-                                pr: 10
+                                pr: 10,
                             }}>
                             <Container sx={center} >
                                 <Avatar
@@ -79,7 +68,6 @@ export const Seller_login = () => {
                                     Sign In
                                 </Typography>
                             </Container>
-
                             {/* User Inputs */}
                             <Box>
                                 <Grid container>
@@ -92,6 +80,14 @@ export const Seller_login = () => {
                                             fullWidth
                                             InputProps={{ style: { fontSize: '13px', color: 'white' } }}
                                             InputLabelProps={{ style: { fontSize: '13px', color: 'white' } }}
+                                            sx={{
+                                                '& fieldset': {
+                                                    borderColor: 'white',
+                                                },
+                                                '&:hover fieldset': {
+                                                    borderColor: '#FF9A01',
+                                                }
+                                            }}
                                         >
                                         </TextField>
                                     </Grid>
@@ -104,6 +100,11 @@ export const Seller_login = () => {
                                             fullWidth
                                             InputProps={{ style: { fontSize: '13px', color: 'white' } }}
                                             InputLabelProps={{ style: { fontSize: '13px', color: 'white' } }}
+                                            sx={{
+                                                '& fieldset': {
+                                                    borderColor: 'white',
+                                                }
+                                            }}
                                         >
                                         </TextField>
                                     </Grid>
@@ -121,17 +122,14 @@ export const Seller_login = () => {
                                                     '&.Mui-checked': {
                                                         color: `#ffff`
                                                     },
-
                                                 }} />}
                                             />
                                         </Grid>
-                                        <Grid item xs={8} lg={4}  >
+                                        <Grid item xs={12} lg={4}  >
                                             <Typography style={{
                                                 marginTop: 10,
                                                 fontSize: 12,
                                                 cursor: "pointer",
-                                                textAlign: "right",
-
                                             }}
                                                 sx={{
                                                     '&:hover': {
@@ -166,10 +164,14 @@ export const Seller_login = () => {
                                             mt: 2,
                                             cursor: "pointer",
                                             textAlign: "center",
-                                            '&:hover': {
+
+                                        }}>
+                                        <Link href="/seller_register" sx={{
+                                            color: "white", '&:hover': {
                                                 color: "#FF9A01",
+                                                textDecoration: "none"
                                             }
-                                        }}>Not registered yet? Create an Account</Typography>
+                                        }}>Not registered yet? Create an Account</Link></Typography>
                                 </Grid>
                             </Box>
                         </Box>

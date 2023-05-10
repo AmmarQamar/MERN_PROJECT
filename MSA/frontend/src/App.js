@@ -4,7 +4,7 @@ import SignUp from './components/User_SignUp';
 import { Buttons } from './components/Buttons';
 import { Seller_login } from './components/Seller/Seller_login';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import Seller_Register from './components/Seller/Seller_Register';
+import { Seller_Register } from './components/Seller/Seller_Register';
 function App() {
   return (
     <>
