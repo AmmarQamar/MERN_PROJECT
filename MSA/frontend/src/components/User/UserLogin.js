@@ -29,7 +29,7 @@ const center = {
     flexDirection: "column",
 };
 
-export const Seller_login = () => {
+export const UserLogin = () => {
     return (
 
         <div style={{
@@ -71,7 +71,7 @@ export const Seller_login = () => {
                                     <LockOpenIcon sx={{ color: "black" }} />
                                 </Avatar>
                                 <Typography variant="h5">
-                                    Sign In
+                                    USER LOGIN
                                 </Typography>
                             </Container>
                             {/* User Inputs */}
