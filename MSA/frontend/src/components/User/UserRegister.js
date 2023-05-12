@@ -28,19 +28,14 @@ const theme = createTheme({
                         color: 'white', // user input color
                         fontSize: '12px', // User Input
                     },
-
                     '& fieldset': {
                         borderColor: 'white', // change border color
                         fontSize: 10,
                         height: 50,
                     },
-                    // '&:hover fieldset': {
-                    //   borderColor: 'white',
-                    // },
                     // '&:hover': {
                     //   borderColor: 'red',
                     // },
-
                 },
             },
         },
@@ -55,6 +50,7 @@ const boxstyle = {
     width: "50vw",
     height: "95vh",
     boxShadow: 25,
+    // backgroundColor: "white",
     backgroundColor: "#3b33d5",
     borderRadius: 2,
     color: "white",
@@ -80,38 +76,43 @@ const center = {
 };
 export const UserRegister = () => {
     return (
-        <ThemeProvider theme={theme}>
-            <Box sx={boxstyle}>
-                <Box sx={center}>
-                    <Stack spacing={2}>
-                        <div style={{ margin: "auto", }}>
-                            <Avatar
-                                sx={{ p: 1, bgcolor: "#ffffff", margin: "auto" }}>
-                                <LockOpenIcon sx={{ color: "black" }} />
-                            </Avatar>
-                            <Typography variant="h5" sx={{ mt: 1 }} >
-                                REGISTRATION
-                            </Typography>
-                        </div>
-                        <TextField label="Full Name"></TextField>
-                        <TextField label="Email"></TextField>
-                        <TextField label="Password"></TextField>
-                        <TextField label="Phone No"></TextField>
-                        <TextField label="Location"></TextField>
-                        <Button variant="contained" sx={SignUpButton}> SignUp</Button>
-                        <Link href="/" sx={{
-                            color: "white",
-                            textAlign: "center",
-                            '&:hover': {
-                                color: "#FF9A01",
-                                textDecoration: "none"
+        <body style={{
+            backgroundColor: "#E3EBFB", height: "100vh", overflow: "hidden",
+        }}>
+            <ThemeProvider theme={theme} >
+                <Box >
+                    <Box sx={boxstyle}>
+                        <Box sx={center}>
+                            <Stack spacing={2}>
+                                <div style={{ margin: "auto", }}>
+                                    <Avatar
+                                        sx={{ p: 1, bgcolor: "#ffffff", margin: "auto" }}>
+                                        <LockOpenIcon sx={{ color: "black" }} />
+                                    </Avatar>
+                                    <Typography variant="h5" sx={{ mt: 1 }} >
+                                        REGISTRATION
+                                    </Typography>
+                                </div>
+                                <TextField label="Full Name"></TextField>
+                                <TextField label="Email"></TextField>
+                                <TextField label="Password"></TextField>
+                                <TextField label="Phone No"></TextField>
+                                <TextField label="Location"></TextField>
+                                <Button variant="contained" sx={SignUpButton}> SignUp</Button>
+                                <Link href="/user_login" sx={{
+                                    color: "white",
+                                    textAlign: "center",
+                                    '&:hover': {
+                                        color: "#FF9A01",
+                                        textDecoration: "none"
 
-                            }
-                        }}>Already Account? SignIn</Link>
-                    </Stack>
+                                    }
+                                }}>Already Account? SignIn</Link>
+                            </Stack>
+                        </Box>
+                    </Box>
                 </Box>
-            </Box>
-        </ThemeProvider>
-
+            </ThemeProvider>
+        </body>
     )
 }

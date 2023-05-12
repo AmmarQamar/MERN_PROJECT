@@ -159,7 +159,7 @@ export const UserLogin = () => {
                                             textAlign: "center",
 
                                         }}>
-                                        <Link href="/seller_register" sx={{
+                                        <Link href="/user_register" sx={{
                                             color: "white", '&:hover': {
                                                 color: "#FF9A01",
                                                 textDecoration: "none"
@@ -167,7 +167,7 @@ export const UserLogin = () => {
                                         }}>Not registered yet? Create an Account</Link></Typography>
                                 </Grid>
                             </Box>
-                        </Box>
+                        </Box>  
                     </Grid>
                 </Grid>
             </Box>
