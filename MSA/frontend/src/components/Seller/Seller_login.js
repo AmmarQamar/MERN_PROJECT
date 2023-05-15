@@ -38,7 +38,7 @@ export const Seller_login = () => {
             height: "100vh",
             color: "#f5f5f5",
         }}>
-            <Box sx={boxstyle}>
+            <Box className>
                 <Grid container >
                     {/* For Image */}
                     <Grid item xs={12} lg={6}>

@@ -11,13 +11,32 @@ import SignUpButton from '../css/Css';
 
 
 
+// const boxstyle = {
+//     position: "absolute",
+//     top: "50%",
+//     left: "50%",
+//     transform: "translate(-50%, -50%)",
+//     width: "75%",
+//     height: "70%",
+//     bgcolor: "background.paper",
+//     boxShadow: 24,
+// };
+// const center = {
+//     width: "100%",
+//     display: "flex",
+//     justifyContent: "center",
+//     alignItems: "center",
+//     flexDirection: "column",
+// };
+
 const boxstyle = {
     position: "absolute",
     top: "50%",
     left: "50%",
     transform: "translate(-50%, -50%)",
+    height: "70vh",
     width: "75%",
-    height: "70%",
+    // height: "70%",
     bgcolor: "background.paper",
     boxShadow: 24,
 };
@@ -167,7 +186,7 @@ export const UserLogin = () => {
                                         }}>Not registered yet? Create an Account</Link></Typography>
                                 </Grid>
                             </Box>
-                        </Box>  
+                        </Box>
                     </Grid>
                 </Grid>
             </Box>

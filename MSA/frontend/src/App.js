@@ -8,12 +8,16 @@ import { Seller_Register } from './components/Seller/Seller_Register';
 import { UserLogin } from './components/User/UserLogin';
 import { UserRegister } from './components/User/UserRegister';
 import AddNewProduct from './components/Seller/AddNewProduct';
+import AddMart from './components/Seller/AddMart';
+import Currentlocation from './components/location/Currentlocation';
 function App() {
   return (
     <>
       <BrowserRouter>
         <Routes>
-          <Route path="/" exact element={<Seller_login />}></Route>
+          <Route path="/" exact element={<Currentlocation />}></Route>
+          <Route path="/addmart" element={<AddMart />}></Route>
+          <Route path="/seller_login" element={<Seller_login />}></Route>
           <Route path="/seller_register" element={<Seller_Register />}></Route>
           <Route path="/user_login" element={<UserLogin />}></Route>
           <Route path="/user_register" element={<UserRegister />}></Route>
