@@ -1,28 +1,53 @@
-import React, { useMemo } from 'react';
-import { GoogleMap, useLoadScript, Marker } from '@react-google-maps/api';
-import './../css/map.css';
+import { useEffect, useState } from "react";
+import { GoogleMap, useLoadScript, Marker } from "@react-google-maps/api";
+import './../css/map.css'
+import { Box, Button } from "@mui/material";
 
-const Currentlocation = () => {
-    const { isLoaded } = useLoadScript({
-        googleMapsApiKey: "AIzaSyDt2aRdrd_41en1KKW2Gnxmk7cWGsgPnlk",
-        // googleMapsApiKey: process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY,
+function Currentlocation() {
+    const [currentLocation, setCurrentLocation] = useState(null);
 
+    const { isLoaded, loadError } = useLoadScript({
+        googleMapsApiKey: process.env.REACT_APP_GOOGLE_MAPS_API_KEY,
+        // Other options if needed
     });
-    if (!isLoaded) return <div>Loading...</div>
-    return (
-        <Map />
-    )
-}
 
-function Map() {
-    const center = useMemo(() => ({ lat: 33.6844, lng: 73.0479 }), []);
+    useEffect(() => {
+
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(
+                (position) => {
+                    setCurrentLocation({
+                        lat: position.coords.latitude,
+                        lng: position.coords.longitude,
+
+                    });
+                },
+                (error) => {
+                    console.log("Error getting current location:", error);
+                }
+            );
+        } else {
+            console.log("Geolocation is not supported by this browser.");
+        }
+    }, []);
+
+    if (loadError) return <div>Error loading maps</div>;
+    if (!isLoaded) return <div>Loading...</div>;
+
     return (
-        <GoogleMap
-            zoom={10}
-            center={center}
-            mapContainerClassName="map-container">
-            <Marker position={center} />
-        </GoogleMap>
-    )
+        <Box>
+            <GoogleMap
+                zoom={10}
+                center={currentLocation}
+                mapContainerStyle={{ margin: "auto", height: "80vh", width: "100vw" }}
+            // mapContainerStyle={{ margin: "auto", marginTop: 20, height: "80vh", width: "100vw" }}
+            >
+                {currentLocation && <Marker position={currentLocation} />}
+            </GoogleMap>
+            <Box sx={{ margin: "auto", width: "40vw", marginTop: 4 }}>
+                <Button variant="contained" sx={{ width: "40vw" }}>Save</Button>
+            </Box>
+        </Box>
+    );
 }
-export default Currentlocation;
+export default Currentlocation

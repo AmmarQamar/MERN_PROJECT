@@ -10,11 +10,13 @@ import { UserRegister } from './components/User/UserRegister';
 import AddNewProduct from './components/Seller/AddNewProduct';
 import AddMart from './components/Seller/AddMart';
 import Currentlocation from './components/location/Currentlocation';
+import Places from './components/location/places';
 function App() {
   return (
     <>
       <BrowserRouter>
         <Routes>
+          {/* <Route path="/" exact element={<Places />}></Route> */}
           <Route path="/" exact element={<Currentlocation />}></Route>
           <Route path="/addmart" element={<AddMart />}></Route>
           <Route path="/seller_login" element={<Seller_login />}></Route>
